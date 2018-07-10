@@ -10,10 +10,11 @@ const {
   MNEMONIC_PHRASE
 } = require('../config');
 const source = fs.readFileSync(
-  path.resolve(__dirname, 'contracts', 'RockPaperScissors.sol'),
+  path.resolve(__dirname, 'RockPaperScissors.sol'),
   'utf-8'
 );
 const code = solc.compile(source, 1);
+debugger;
 const { interface, bytecode } = code.contracts[':RockPaperScissors'];
 
 const provider = new HDWalletProvider(MNEMONIC_PHRASE, LOCAL_PROVIDER_URL);
