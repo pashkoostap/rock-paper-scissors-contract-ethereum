@@ -10,6 +10,7 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'src'),
     port: 1234
   },
+  mode: 'development',
   module: {
     rules: [
       {
