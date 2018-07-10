@@ -7,7 +7,7 @@ contract RockPaperScissors {
     manager = msg.sender;
   }
 
-  function play(string option) public {
+  function play() public payable {
     require(msg.value >= 0.1 ether);
     require(msg.value <= 1 ether);
     players.push(msg.sender);
