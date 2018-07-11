@@ -11,8 +11,6 @@ const getPlayersBtn = document.querySelector('#get-players');
 let walletAddress = '';
 let contract;
 
-walletInput.addEventListener('input', console.log);
-
 getManagerBtn.addEventListener('click', () => {
   web3.eth.getCoinbase().then(wallet => {
     walletAddress = wallet;
@@ -36,17 +34,25 @@ getManagerBtn.addEventListener('click', () => {
 });
 
 sendBtn.addEventListener('click', () => {
-  contract.methods
-    .play()
-    .send({ from: walletAddress, value: 1000000000000000000 }, (err, hash) => {
+  const value = walletInput.value.replace(',', '.');
+
+  contract.methods.play('rock').send(
+    {
+      from: walletAddress,
+      value: web3.utils.toWei(value, 'ether')
+    },
+    (err, hash) => {
       console.error('play', err);
       console.log('play', hash);
-    });
+    }
+  );
 });
 
 getPlayersBtn.addEventListener('click', () => {
-  contract.methods.getPlayers().call({ from: walletAddress }, (err, result) => {
-    console.error('getPlayers', err);
-    console.log('getPlayers', result);
-  });
+  contract.methods
+    .players('0xB2eF2431E3882de15EF699560024067a69c5076C')
+    .call({ from: walletAddress }, (err, result) => {
+      console.error('getPlayers', err);
+      console.log('getPlayers', result);
+    });
 });
