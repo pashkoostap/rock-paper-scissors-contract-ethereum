@@ -1,0 +1,48 @@
+body {
+  background-color: #e5e0be;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#options {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+#options li {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 50%;
+  background-color: #e0d6af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+#options li:hover,
+#options li.selected {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+#options li svg {
+  fill: #37593b;
+  width: 60px;
+  height: 60px;
+}

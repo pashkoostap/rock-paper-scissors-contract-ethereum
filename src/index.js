@@ -1,4 +1,5 @@
 import './web3';
+import './styles.css';
 import * as code from '../bin/contracts/RockPaperScissors.json';
 
 const { CONTRACT_ADDRESS } = require('../config');
@@ -24,6 +25,14 @@ getManagerBtn.addEventListener('click', () => {
         console.log('getManager', result);
       });
   });
+
+  var subscription = web3.eth
+    .subscribe('newBlockHeaders', function(error, result) {
+      if (!error) console.log(result);
+    })
+    .on('data', function(log) {
+      console.log(log);
+    });
 });
 
 sendBtn.addEventListener('click', () => {
