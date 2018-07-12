@@ -5,3 +5,11 @@ export const findListElement = node => {
     return node;
   }
 };
+
+export const addClass = (node, cssClass) => {
+  node.classList.add(cssClass);
+};
+
+export const removeClass = (node, cssClass) => {
+  node.classList.remove(cssClass);
+};

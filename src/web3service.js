@@ -1,5 +1,6 @@
 import Web3 from 'web3';
 import * as code from '../bin/contracts/RockPaperScissors.json';
+import { resolve } from 'path';
 const { LOCAL_PROVIDER_URL, CONTRACT_ADDRESS } = require('../config');
 
 // window.addEventListener('load', () => {
@@ -58,15 +59,17 @@ export default class Web3Service {
       });
   }
 
-  playGame(bet, value) {
-    this.contract.methods.play(bet).send(
-      {
-        from: this.wallet,
-        value: web3.utils.toWei(value, 'ether')
-      },
-      (err, hash) => {
-        console.log('play', hash);
-      }
-    );
+  playGame(value) {
+    if (this.bet) {
+      this.contract.methods.play(this.bet).send(
+        {
+          from: this.wallet,
+          value: web3.utils.toWei(value, 'ether')
+        },
+        (err, hash) => {
+          console.log('play', hash);
+        }
+      );
+    }
   }
 }
