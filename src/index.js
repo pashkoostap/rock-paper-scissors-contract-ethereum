@@ -3,14 +3,14 @@ import { findListElement, addClass, removeClass } from './utils';
 
 import './styles.css';
 
+const web3service = new Web3Service();
+
 const walletInput = document.querySelector('#wallet');
 const sendBtn = document.querySelector('#send');
 const getManagerBtn = document.querySelector('#get-manager');
 const getPlayersBtn = document.querySelector('#get-players');
 const inputValidation = document.querySelector('#input-validation');
 const optionsList = document.querySelector('#options');
-
-const web3service = new Web3Service();
 
 getManagerBtn.addEventListener('click', () => {
   web3service.getManager();

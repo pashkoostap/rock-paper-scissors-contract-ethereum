@@ -36,7 +36,8 @@ module.exports = {
       {
         from: 'src/index.html',
         to: 'index.html'
-      }
+      },
+      { from: 'src/favicon.ico', to: 'favicon.ico' }
     ])
   ]
 };
