@@ -30,7 +30,7 @@ ul {
 .input {
   padding: 10px 20px;
   border-radius: 3px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
   border: none;
   font-size: 16px;
   text-transform: uppercase;
@@ -51,7 +51,7 @@ ul {
 
 .btn:hover,
 .input:focus {
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
 }
 
 #options {
@@ -73,13 +73,13 @@ ul {
   transition: all 0.2s ease;
   cursor: pointer;
   background-color: #e0d6af;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
 }
 
 #options li:hover,
 #options li.selected {
   transform: scale(1.2);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
 }
 
 #options li svg {
@@ -110,4 +110,6 @@ ul {
   padding-top: 10px;
   display: flex;
   text-transform: uppercase;
+  flex-basis: 100%;
+  justify-content: center;
 }
