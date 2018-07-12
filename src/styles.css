@@ -10,6 +10,10 @@ ul {
   margin: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .wrapper {
   max-width: 1200px;
   margin-right: auto;
@@ -38,6 +42,10 @@ ul {
 
 .btn {
   background-color: #e0d6af;
+}
+
+.input {
+  margin: 0;
 }
 
 .btn:hover,
@@ -69,7 +77,7 @@ ul {
 
 #options li:hover,
 #options li.selected {
-  transform: scale(1.1);
+  transform: scale(1.2);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -84,4 +92,20 @@ ul {
   margin: 20px 0px;
   display: flex;
   justify-content: center;
+}
+
+.form-wrap {
+  flex-wrap: wrap;
+}
+
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+#input-validation {
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 5px;
+  display: flex;
 }
