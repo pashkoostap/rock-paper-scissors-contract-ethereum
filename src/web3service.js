@@ -53,7 +53,7 @@ export default class Web3Service {
       });
   }
 
-  playGame(value) {
+  playGame(value, callback) {
     if (this.bet) {
       this.contract.methods.play(this.bet).send(
         {
@@ -62,6 +62,7 @@ export default class Web3Service {
         },
         (err, hash) => {
           console.log('play', hash);
+          callback();
         }
       );
     }

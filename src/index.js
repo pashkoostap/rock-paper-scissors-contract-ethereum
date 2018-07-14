@@ -32,7 +32,12 @@ sendBtn.addEventListener('click', () => {
 
   if (value.match(/^\d+(\.\d+)*$/)) {
     addClass(inputValidation, 'hidden');
-    web3service.playGame(value);
+    web3service.playGame(value, () => {
+      [...optionsList.querySelectorAll('li')].forEach(node =>
+        removeClass(node, 'selected')
+      );
+      walletInput.value = '';
+    });
   } else {
     removeClass(inputValidation, 'hidden');
   }
