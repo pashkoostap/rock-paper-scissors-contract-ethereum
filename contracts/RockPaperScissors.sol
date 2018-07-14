@@ -4,6 +4,7 @@ contract RockPaperScissors {
   struct Player {
     address adr;
     string bet;
+    uint value;
   }
 
   address private manager;
@@ -27,12 +28,12 @@ contract RockPaperScissors {
   function play(string bet) public payable {
     require(msg.value >= 0.1 ether);
 
-      players[iterCount] = Player({ adr: msg.sender, bet: bet });
-      iterCount = iterCount + 1;
+    players[iterCount] = Player({ adr: msg.sender, bet: bet, value: msg.value });
+    iterCount = iterCount + 1;
 
-      if (iterCount == 2) {
-        pickWinner();
-      }
+    if (iterCount == 2) {
+      pickWinner();
+    }
   }
 
   function getManager() public view returns (address) {
@@ -52,8 +53,8 @@ contract RockPaperScissors {
     if (winnerIndex != -1) {
       players[winnerIndex].adr.transfer(this.balance);
     } else {
-      players[0].adr.transfer(players[0].bet);
-      players[1].adr.transfer(players[1].bet);
+      players[0].adr.transfer(players[0].value);
+      players[1].adr.transfer(players[1].value);
     }
 
     resetGame();
