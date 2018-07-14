@@ -8,8 +8,8 @@ contract RockPaperScissors {
 
   address private manager;
   mapping (string => mapping(string => int)) bets;
-  uint private iterCount;
-  mapping (uint => Player) private players;
+  int private iterCount = 0;
+  mapping (int => Player) private players;
 
   function RockPaperScissors() public {
     manager = msg.sender;
@@ -26,14 +26,13 @@ contract RockPaperScissors {
 
   function play(string bet) public payable {
     require(msg.value >= 0.1 ether);
-    require(iterCount < 2);
 
-    if (iterCount < 2) {
       players[iterCount] = Player({ adr: msg.sender, bet: bet });
       iterCount = iterCount + 1;
-    } else {
-      pickWinner();
-    }
+
+      if (iterCount == 2) {
+        pickWinner();
+      }
   }
 
   function getManager() public view returns (address) {
@@ -41,15 +40,22 @@ contract RockPaperScissors {
   }
 
   function resetGame() private {
-    for (uint index = 0; index < iterCount; index++) {
+    for (int index = 0; index < iterCount; index++) {
       delete players[index];
     }
     iterCount = 0;
   }
 
-  function pickWinner() public view returns(uint) {
-    require(iterCount == 2);
-    
-    return bets[players[0].bet][players[1].bet];
+  function pickWinner() private {
+    int winnerIndex = bets[players[0].bet][players[1].bet];
+
+    if (winnerIndex != -1) {
+      players[winnerIndex].adr.transfer(this.balance);
+    } else {
+      players[0].adr.transfer(players[0].bet);
+      players[1].adr.transfer(players[1].bet);
+    }
+
+    resetGame();
   }
 }
