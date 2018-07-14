@@ -17,7 +17,7 @@ const code = solc.compile(source, 1);
 debugger;
 const { interface, bytecode } = code.contracts[':RockPaperScissors'];
 
-const provider = new HDWalletProvider(MNEMONIC_PHRASE, LOCAL_PROVIDER_URL);
+const provider = new HDWalletProvider(MNEMONIC_PHRASE, RINKEBY_PROVIDER_URL);
 const web3 = new Web3(provider);
 
 const deploy = async () => {

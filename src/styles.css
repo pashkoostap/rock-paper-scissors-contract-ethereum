@@ -2,6 +2,9 @@ body {
   display: flex;
   background-color: #e5e0be;
   height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  padding: 15px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -112,4 +115,36 @@ ul {
   text-transform: uppercase;
   flex-basis: 100%;
   justify-content: center;
+}
+
+@media (max-width: 480px) {
+  #options li {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 15px;
+  }
+
+  #options li svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .btn,
+  .input {
+    margin: 10px;
+  }
+
+  .input {
+    order: 0;
+  }
+
+  #input-validation {
+    order: 1;
+    padding: 10px 0px;
+  }
+
+  .btn {
+    order: 2;
+  }
 }
