@@ -8,12 +8,24 @@
   <title>Rock Paper Scissors</title>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+ 
 
 </head>
 
-<body>
+<body style="background-color: #e5e0be;">
+  <style>
+    .hidden {
+      display: none !important;
+    }
+  </style>
 
-  <div class="wrapper">
+  <script>
+    window.addEventListener('load', ()=>{
+      document.querySelector('.wrapper').classList.remove('hidden')
+    })
+  </script>
+
+  <div class="wrapper  hidden">
     <ul id="options">
       <li id="rock">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
